@@ -3,7 +3,11 @@
 
   "name": "Pepper",
 
-  "title": "The Girl Who Carries Sketchbooks",
+  "subtitle": "The Girl Who Carries Sketchbooks",
+
+  "home": "The Little District",
+
+  "occupation": "Community Artist",
 
   "image": "assets/characters/pepper-transparent.png",
 
@@ -35,5 +39,5 @@
     "What's one promise you'd like to make to yourself this week?"
   ],
 
-  "farewell": "Until next time.\n\n— Pepper 🍃"
+  "farewell": "Until next time.\n\nI'll have another page waiting for you tomorrow.\n\nCome visit me again.\n\n— Pepper 🍃"
 }

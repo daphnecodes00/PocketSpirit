@@ -1,19 +1,11 @@
 /* =====================================================
    THE LITTLE DISTRICT
-   Pocket Folk Reader v1
+   Pocket Folk Reader
 ===================================================== */
 
 let pocketFolk = null;
 
 let currentPage = 0;
-
-const pages = [
-    "page-cover",
-    "page-meet",
-    "page-thought",
-    "page-reflection",
-    "page-back-cover"
-];
 
 
 /* =====================================================
@@ -116,24 +108,28 @@ function populateBook() {
 
 function showPage(index) {
 
-    document
-        .querySelectorAll(".page")
-        .forEach(page => {
+    const pages =
+        document.querySelectorAll(".page");
 
-            page.style.display = "none";
+    pages.forEach(page => {
 
-        });
+        page.classList.remove("active");
 
-    document.getElementById(pages[index]).style.display = "flex";
+    });
+
+    pages[index].classList.add("active");
 
 }
 
 
 /* =====================================================
-   NEXT PAGE
+   TURN PAGE
 ===================================================== */
 
-function nextPage() {
+function turnPage() {
+
+    const pages =
+        document.querySelectorAll(".page");
 
     if (currentPage >= pages.length - 1)
         return;
@@ -146,13 +142,17 @@ function nextPage() {
 
 
 /* =====================================================
-   BOOK
+   INITIALIZE BOOK
 ===================================================== */
 
 function initializeBook() {
 
     document
         .getElementById("book")
-        .addEventListener("click", nextPage);
+        .addEventListener("click", function () {
 
-}
+            turnPage();
+
+        });
+
+}i
