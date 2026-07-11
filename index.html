@@ -1,49 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pocket Spirits</title>
+
+    <title>The Little District</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <main id="app">
-        <section id="screen-cover">
-          <img id="cover-image" alt="Pocket Folk">
-          <h1 id="cover-name"></h1>
-          <p> Someone has been hoping
-              to spend a little time
-              with you today.
-          </p>
-          <button id="open-button">
-              Open Sketchbook
-          </button>
-        </section>
 
-        <section id="screen-greeting">
-            <img id="character-image" alt="Pocket Folk">
-            <h1 id="name"></h1>
-            <p id="greeting"></p>
-            <button id="continue-button">
-                Continue
-            </button>
-        </section>
+<div id="book">
+  <div id="pages"> 
+    <!-- ==========================================
+         BOOK COVER
+    =========================================== -->
 
-        <section id="screen-whisper">
-          <h2>🌿 For Today</h2>
-          <p id="whisper"></p>
-          <button id="whisper-button">
-                Turn the Page
-         </button>
-        </section>
+    <section id="page-cover" class="page">
 
-    </main>
-    <script src="script.js"></script>
+        <img
+            id="book-cover"
+            src="assets/book-cover.png"
+            alt="The Little District">
+
+    </section>
+
+
+    <!-- ==========================================
+         PAGE 1 - MEET PEPPER
+    =========================================== -->
+
+    <section id="page-meet" class="page">
+
+        <img
+            id="character-image"
+            alt="Pocket Folk">
+
+        <h1 id="name"></h1>
+
+        <p id="introduction"></p>
+
+    </section>
+
+
+    <!-- ==========================================
+         PAGE 2 - TODAY'S THOUGHT
+    =========================================== -->
+
+    <section id="page-thought" class="page">
+
+        <p id="whisper" class="thought"></p>
+
+    </section>
+
+
+    <!-- ==========================================
+         PAGE 3 - REFLECTION
+    =========================================== -->
+
+    <section id="page-reflection" class="page">
+
+        <p id="journal-prompt" class="reflection"></p>
+
+    </section>
+
+
+    <!-- ==========================================
+         BACK COVER
+    =========================================== -->
+
+    <section id="page-back-cover" class="page">
+      <p id="farewell"></p>
+    </section>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 
 </html>

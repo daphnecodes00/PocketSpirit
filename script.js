@@ -1,42 +1,153 @@
+/* =====================================================
+   GLOBALS
+===================================================== */
+
+let pocketFolk;
+
+let currentPage = 0;
+
+const pages = [
+    "page-cover",
+    "page-meet",
+    "page-thought",
+    "page-reflection",
+    "page-back-cover"
+];
+
+
+/* =====================================================
+   LOAD CHARACTER
+===================================================== */
+
 async function loadPocketFolk() {
+
     try {
 
         const params = new URLSearchParams(window.location.search);
-        const character = params.get("character") || "pepper";
 
-        const response = await fetch(`data/${character}.json`);
+        const character =
+            params.get("character") || "pepper";
 
-        const pocketFolk = await response.json();
+        const response =
+            await fetch(`data/${character}.json`);
 
-        document.getElementById("character-image").src = pocketFolk.image;
-        document.getElementById("name").textContent = pocketFolk.name;
-        document.getElementById("greeting").textContent = pocketFolk.greeting;
+        pocketFolk =
+            await response.json();
 
-        document.getElementById("whisper").textContent = pocketFolk.whispers[0];
+        populateBook();
 
-    } catch (error) {
-        console.error("Couldn't load Pocket Folk.", error);
+        showPage(0);
+
     }
-}
 
-function showScreen(screenId) {
+    catch (error) {
 
-    document.getElementById("screen-cover").style.display = "none";
-    document.getElementById("screen-greeting").style.display = "none";
-    document.getElementById("screen-whisper").style.display = "none";
+        console.error(error);
 
-    document.getElementById(screenId).style.display = "block";
+    }
 
 }
+
+
+/* =====================================================
+   POPULATE BOOK
+===================================================== */
+
+function populateBook() {
+
+    /* ---------- Cover ---------- */
+
+    document.getElementById("book-cover").src =
+        pocketFolk.bookCover;
+
+
+    /* ---------- Meet ---------- */
+
+    document.getElementById("character-image").src =
+        pocketFolk.image;
+
+    document.getElementById("name").textContent =
+        pocketFolk.name;
+
+    document.getElementById("introduction").textContent =
+        pocketFolk.introduction;
+
+
+    /* ---------- Thought ---------- */
+
+    document.getElementById("whisper").textContent =
+        pocketFolk.whispers[0];
+
+
+    /* ---------- Reflection ---------- */
+
+    document.getElementById("journal-prompt").textContent =
+        pocketFolk.journalPrompts[0];
+
+
+    /* ---------- Back Cover ---------- */
+
+    document.getElementById("farewell").textContent =
+        pocketFolk.farewell;
+
+}
+
+
+/* =====================================================
+   SHOW PAGE
+===================================================== */
+
+function showPage(pageNumber) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(function(page) {
+
+            page.style.display = "none";
+
+        });
+
+    document
+        .getElementById(pages[pageNumber])
+        .style.display = "flex";
+
+}
+
+
+/* =====================================================
+   TURN PAGE
+===================================================== */
+
+function turnPage() {
+
+    if (currentPage >= pages.length - 1) {
+
+        return;
+
+    }
+
+    currentPage++;
+
+    showPage(currentPage);
+
+}
+
+
+/* =====================================================
+   TAP BOOK
+===================================================== */
+
+document
+    .getElementById("book")
+    .addEventListener("click", function () {
+
+        turnPage();
+
+    });
+
+
+/* =====================================================
+   START
+===================================================== */
 
 loadPocketFolk();
-
-const continueButton = document.getElementById("continue-button");
-continueButton.addEventListener("click", function () {
-    showScreen("screen-whisper");
-});
-
-const openButton = document.getElementById("open-button");
-openButton.addEventListener("click", function () {
-    showScreen("screen-greeting");
-});

@@ -1,28 +1,196 @@
-body {
-    font-family: Georgia, serif;
-    text-align: center;
-    padding: 40px;
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+body {
+
+    font-family: "Nunito", sans-serif;
+
+    background: #E9E3D7;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+
+    padding: 24px;
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================================
+   BOOK
+===================================================== */
+
+#book {
+
+    position: relative;
+
+    width: min(390px, 100%);
+    aspect-ratio: 9 / 16;
+
+    perspective: 2000px;
+
+}
+
+
+/* =====================================================
+   PAGE CONTAINER
+===================================================== */
+
+#pages {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+
+/* =====================================================
+   EVERY PAGE
+===================================================== */
+
+.page {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 48px;
+
+    background: #FAF7F2;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 40px rgba(0,0,0,.12);
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   IMAGES
+===================================================== */
+
+#book-cover {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+}
+
 
 #character-image {
+
     width: 220px;
-    height: auto;
+
+    margin-bottom: 32px;
+
 }
+
+
+/* =====================================================
+   HEADINGS
+===================================================== */
 
 h1 {
-    margin-top: 20px;
+
+    font-size: 2rem;
+
+    color: #403A34;
+
+    margin-bottom: 18px;
+
 }
+
+
+/* =====================================================
+   BODY TEXT
+===================================================== */
 
 p {
-    max-width: 500px;
-    margin: auto;
+
+    color: #4F4A44;
+
+    font-size: 1.1rem;
+
+    line-height: 1.9;
+
+    max-width: 280px;
+
+}
+
+
+/* =====================================================
+   THOUGHT PAGE
+===================================================== */
+
+.thought {
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    line-height: 1.5;
+
+}
+
+
+/* =====================================================
+   REFLECTION PAGE
+===================================================== */
+
+.reflection {
+
+    font-size: 1.6rem;
+
     line-height: 1.6;
+
 }
 
-#screen-greeting {
+
+/* =====================================================
+   HIDDEN PAGES
+===================================================== */
+
+.page {
+
     display: none;
+
 }
 
-#screen-whisper {
-    display: none;
+#page-cover {
+
+    display: flex;
+
 }

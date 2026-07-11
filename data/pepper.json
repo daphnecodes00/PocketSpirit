@@ -1,20 +1,41 @@
 {
   "id": "pepper",
+
   "name": "Pepper",
-  "occupation": "Community Artist",
+
+  "title": "The Girl Who Carries Sketchbooks",
+
+  "bookCover": "assets/book-cover.png",
+
   "image": "assets/characters/pepper.png",
 
-  "greeting": "Hi. I'm Pepper. I've been carrying this sketchbook around for ages. Maybe today we'll finally fill another page together.",
+  "introduction": "Hi, I'm Pepper.\n\nI carry little sketchbooks everywhere I go. They remind me that every beautiful thing starts as a tiny idea.\n\nWould you like to turn the page with me?",
 
   "whispers": [
     "Some ideas don't need to be perfect. They just need somewhere to begin.",
-    "A blank page isn't empty. It's full of possibilities.",
-    "Even tiny sketches can become beautiful stories."
+    "A blank page isn't empty. It's patiently waiting for you.",
+    "Even tiny sketches can become wonderful stories.",
+    "You don't have to finish everything today. Beginning is enough.",
+    "Some dreams stay quiet until someone finally writes them down.",
+    "The first line is always the bravest one.",
+    "It's okay if today's masterpiece is only a doodle.",
+    "Your ideas deserve a place to exist, even before they're finished.",
+    "Small steps still leave beautiful footprints.",
+    "Progress often looks ordinary while you're living it."
   ],
 
   "journalPrompts": [
-    "What's one idea you've been waiting to start?",
-    "What small creative act would make today feel meaningful?",
-    "If you weren't afraid of making mistakes, what would you create?"
-  ]
+    "What's one idea you've been quietly waiting to begin?",
+    "What would you create if you weren't worried about getting it wrong?",
+    "What's something you've been meaning to start?",
+    "If today were enough, what would you feel proud of?",
+    "What tiny step could Future You thank you for?",
+    "What's one unfinished dream that's still worth carrying?",
+    "Which part of your life deserves a blank page today?",
+    "What have you outgrown that you're still holding onto?",
+    "If you could spend ten minutes on one meaningful thing today, what would it be?",
+    "What's one promise you'd like to make to yourself this week?"
+  ],
+
+  "farewell": "Until next time.\n\n Pepper 🍃"
 }
