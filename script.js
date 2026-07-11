@@ -1,8 +1,9 @@
 /* =====================================================
-   GLOBALS
+   THE LITTLE DISTRICT
+   Pocket Folk Reader v1
 ===================================================== */
 
-let pocketFolk;
+let pocketFolk = null;
 
 let currentPage = 0;
 
@@ -13,6 +14,17 @@ const pages = [
     "page-reflection",
     "page-back-cover"
 ];
+
+
+/* =====================================================
+   START
+===================================================== */
+
+window.addEventListener("DOMContentLoaded", () => {
+
+    loadPocketFolk();
+
+});
 
 
 /* =====================================================
@@ -38,6 +50,8 @@ async function loadPocketFolk() {
 
         showPage(0);
 
+        initializeBook();
+
     }
 
     catch (error) {
@@ -57,8 +71,11 @@ function populateBook() {
 
     /* ---------- Cover ---------- */
 
-    document.getElementById("book-cover").src =
-        pocketFolk.bookCover;
+    document.getElementById("cover-character").src =
+        pocketFolk.image;
+
+    document.getElementById("cover-name").textContent =
+        pocketFolk.name;
 
 
     /* ---------- Meet ---------- */
@@ -73,7 +90,7 @@ function populateBook() {
         pocketFolk.introduction;
 
 
-    /* ---------- Thought ---------- */
+    /* ---------- Today's Thought ---------- */
 
     document.getElementById("whisper").textContent =
         pocketFolk.whispers[0];
@@ -97,34 +114,29 @@ function populateBook() {
    SHOW PAGE
 ===================================================== */
 
-function showPage(pageNumber) {
+function showPage(index) {
 
     document
         .querySelectorAll(".page")
-        .forEach(function(page) {
+        .forEach(page => {
 
             page.style.display = "none";
 
         });
 
-    document
-        .getElementById(pages[pageNumber])
-        .style.display = "flex";
+    document.getElementById(pages[index]).style.display = "flex";
 
 }
 
 
 /* =====================================================
-   TURN PAGE
+   NEXT PAGE
 ===================================================== */
 
-function turnPage() {
+function nextPage() {
 
-    if (currentPage >= pages.length - 1) {
-
+    if (currentPage >= pages.length - 1)
         return;
-
-    }
 
     currentPage++;
 
@@ -134,20 +146,13 @@ function turnPage() {
 
 
 /* =====================================================
-   TAP BOOK
+   BOOK
 ===================================================== */
 
-document
-    .getElementById("book")
-    .addEventListener("click", function () {
+function initializeBook() {
 
-        turnPage();
+    document
+        .getElementById("book")
+        .addEventListener("click", nextPage);
 
-    });
-
-
-/* =====================================================
-   START
-===================================================== */
-
-loadPocketFolk();
+}

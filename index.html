@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,68 +18,99 @@
 <body>
 
 <div id="book">
-  <div id="pages"> 
-    <!-- ==========================================
-         BOOK COVER
-    =========================================== -->
 
-    <section id="page-cover" class="page">
+    <div id="pages">
 
-        <img
-            id="book-cover"
-            src="assets/book-cover.png"
-            alt="The Little District">
+        <!-- ==========================================
+             COVER
+        =========================================== -->
 
-    </section>
+        <section id="page-cover" class="page">
 
+            <div class="cover-content">
 
-    <!-- ==========================================
-         PAGE 1 - MEET PEPPER
-    =========================================== -->
+                <p class="publisher">
+                    The Little District
+                </p>
 
-    <section id="page-meet" class="page">
+                <h1 class="book-title">
+                    Pocket Folk
+                </h1>
 
-        <img
-            id="character-image"
-            alt="Pocket Folk">
+                <p class="volume">
+                    Volume One
+                </p>
 
-        <h1 id="name"></h1>
+                <img
+                    id="cover-character"
+                    alt="Pocket Folk">
 
-        <p id="introduction"></p>
+                <h2 id="cover-name"></h2>
 
-    </section>
+                <p class="cover-tagline">
+                    A tiny companion for thoughtful days.
+                </p>
 
+            </div>
 
-    <!-- ==========================================
-         PAGE 2 - TODAY'S THOUGHT
-    =========================================== -->
-
-    <section id="page-thought" class="page">
-
-        <p id="whisper" class="thought"></p>
-
-    </section>
+        </section>
 
 
-    <!-- ==========================================
-         PAGE 3 - REFLECTION
-    =========================================== -->
 
-    <section id="page-reflection" class="page">
+        <!-- ==========================================
+             PAGE 1
+        =========================================== -->
 
-        <p id="journal-prompt" class="reflection"></p>
+        <section id="page-meet" class="page">
 
-    </section>
+            <img
+                id="character-image"
+                alt="Pocket Folk">
+
+            <h1 id="name"></h1>
+
+            <p id="introduction"></p>
+
+        </section>
 
 
-    <!-- ==========================================
-         BACK COVER
-    =========================================== -->
 
-    <section id="page-back-cover" class="page">
-      <p id="farewell"></p>
-    </section>
-  </div>
+        <!-- ==========================================
+             PAGE 2
+        =========================================== -->
+
+        <section id="page-thought" class="page">
+
+            <p id="whisper" class="thought"></p>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             PAGE 3
+        =========================================== -->
+
+        <section id="page-reflection" class="page">
+
+            <p id="journal-prompt" class="reflection"></p>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             BACK COVER
+        =========================================== -->
+
+        <section id="page-back-cover" class="page">
+
+            <p id="farewell"></p>
+
+        </section>
+
+    </div>
+
 </div>
 
 <script src="script.js"></script>

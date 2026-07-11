@@ -5,9 +5,7 @@
 
   "title": "The Girl Who Carries Sketchbooks",
 
-  "bookCover": "assets/book-cover.png",
-
-  "image": "assets/characters/pepper.png",
+  "image": "assets/characters/pepper-transparent.png",
 
   "introduction": "Hi, I'm Pepper.\n\nI carry little sketchbooks everywhere I go. They remind me that every beautiful thing starts as a tiny idea.\n\nWould you like to turn the page with me?",
 
@@ -37,5 +35,5 @@
     "What's one promise you'd like to make to yourself this week?"
   ],
 
-  "farewell": "Until next time.\n\n Pepper 🍃"
+  "farewell": "Until next time.\n\n— Pepper 🍃"
 }
