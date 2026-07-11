@@ -1,26 +1,20 @@
-const whispers = [
-    "You don't have to earn your rest.",
-    "The moon isn't late. Neither are you.",
-    "Small steps still move mountains.",
-    "Someone is smiling because of your kindness.",
-    "Today is allowed to be gentle.",
-    "You are becoming the person you needed years ago."
-];
+async function loadPocketFolk() {
+    try {
 
-const today = new Date(); //luna knows today.
-const dayOfYear = today.getDate();
+        const params = new URLSearchParams(window.location.search);
+        const character = params.get("character") || "pepper";
 
-const revealButton = document.getElementById("revealButton");
-const whisper = document.getElementById("whisper");
-const farewell = document.getElementById("farewell");
+        const response = await fetch(`data/${character}.json`);
 
-revealButton.addEventListener("click", function () {
-    //const randomNumber = Math.floor(Math.random() * whispers.length); // rolling the dice
-    const whisperIndex = dayOfYear % whispers.length;
-    //whisper.textContent = whispers[randomNumber];  //change the content of whisper
-    whisper.textContent = whispers[whisperIndex];
-    whisper.style.display = "block";
-    revealButton.style.display = "none";
-    farewell.style.display = "block";
+        const pocketFolk = await response.json();
 
-});
+        document.getElementById("character-image").src = pocketFolk.image;
+        document.getElementById("name").textContent = pocketFolk.name;
+        document.getElementById("greeting").textContent = pocketFolk.greeting;
+
+    } catch (error) {
+        console.error("Couldn't load Pocket Folk.", error);
+    }
+}
+
+loadPocketFolk();

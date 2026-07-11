@@ -1,0 +1,20 @@
+{
+  "id": "pepper",
+  "name": "Pepper",
+  "occupation": "Community Artist",
+  "image": "assets/characters/pepper.png",
+
+  "greeting": "Hi. I'm Pepper. I've been carrying this sketchbook around for ages. Maybe today we'll finally fill another page together.",
+
+  "whispers": [
+    "Some ideas don't need to be perfect. They just need somewhere to begin.",
+    "A blank page isn't empty. It's full of possibilities.",
+    "Even tiny sketches can become beautiful stories."
+  ],
+
+  "journalPrompts": [
+    "What's one idea you've been waiting to start?",
+    "What small creative act would make today feel meaningful?",
+    "If you weren't afraid of making mistakes, what would you create?"
+  ]
+}
