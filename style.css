@@ -18,3 +18,11 @@ p {
     margin: auto;
     line-height: 1.6;
 }
+
+#screen-greeting {
+    display: none;
+}
+
+#screen-whisper {
+    display: none;
+}

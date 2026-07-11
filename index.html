@@ -12,9 +12,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img id="character-image" alt="Pocket Folk">
-    <h1 id="name"></h1>
-    <p id="greeting"></p>
+    <main id="app">
+        <section id="screen-cover">
+          <img id="cover-image" alt="Pocket Folk">
+          <h1 id="cover-name"></h1>
+          <p> Someone has been hoping
+              to spend a little time
+              with you today.
+          </p>
+          <button id="open-button">
+              Open Sketchbook
+          </button>
+        </section>
+
+        <section id="screen-greeting">
+            <img id="character-image" alt="Pocket Folk">
+            <h1 id="name"></h1>
+            <p id="greeting"></p>
+            <button id="continue-button">
+                Continue
+            </button>
+        </section>
+
+        <section id="screen-whisper">
+          <h2>🌿 For Today</h2>
+          <p id="whisper"></p>
+          <button id="whisper-button">
+                Turn the Page
+         </button>
+        </section>
+
+    </main>
     <script src="script.js"></script>
 </body>
 
