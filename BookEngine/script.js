@@ -2,6 +2,8 @@
    BOOK ENGINE
 ===================================================== */
 
+const book = document.getElementById("book");
+
 const sheetA = document.getElementById("sheet-a");
 const sheetB = document.getElementById("sheet-b");
 
@@ -34,25 +36,26 @@ let topText = textA;
 let bottomText = textB;
 
 /* =====================================================
-   INITIAL
+   INITIALIZE
 ===================================================== */
 
 topText.textContent = pages[0];
 bottomText.textContent = pages[1];
 
+sheetA.style.zIndex = 2;
+sheetB.style.zIndex = 1;
+
 /* =====================================================
-   CLICK
+   NEXT PAGE
 ===================================================== */
 
 book.addEventListener("click", nextPage);
 
 function nextPage() {
 
-    if (turning)
-        return;
+    if (turning) return;
 
-    if (currentPage >= pages.length - 1)
-        return;
+    if (currentPage >= pages.length - 1) return;
 
     turning = true;
 
@@ -61,10 +64,10 @@ function nextPage() {
 }
 
 /* =====================================================
-   TURN FINISHED
+   TURN COMPLETE
 ===================================================== */
 
-topSheet.addEventListener("animationend", finishTurn);
+sheetA.addEventListener("animationend", finishTurn);
 
 function finishTurn() {
 
@@ -73,30 +76,29 @@ function finishTurn() {
     // Reset animation
     topSheet.classList.remove("turn");
 
-    // Put turned sheet underneath
+    // Swap z-index
     topSheet.style.zIndex = 1;
     bottomSheet.style.zIndex = 2;
-
-    // Update the sheet that just went underneath
-    if (currentPage + 1 < pages.length) {
-
-        topText.textContent = pages[currentPage + 1];
-
-    } else {
-
-        topText.textContent = "";
-
-    }
 
     // Swap references
     [topSheet, bottomSheet] = [bottomSheet, topSheet];
     [topText, bottomText] = [bottomText, topText];
 
-    // Remove old listener
+    // Load next page into the hidden sheet
+    if (currentPage + 1 < pages.length) {
+
+        bottomText.textContent = pages[currentPage + 1];
+
+    } else {
+
+        bottomText.textContent = "";
+
+    }
+
+    // Move listener to the new top sheet
     sheetA.removeEventListener("animationend", finishTurn);
     sheetB.removeEventListener("animationend", finishTurn);
 
-    // Listen to the new top sheet
     topSheet.addEventListener("animationend", finishTurn);
 
     turning = false;
