@@ -14,13 +14,7 @@ const textB = document.getElementById("text-b");
    PAGES
 ===================================================== */
 
-const pages = [
-    "TEST ENGINE",
-    "PAGE 1",
-    "PAGE 2",
-    "PAGE 3",
-    "THE END"
-];
+let pages = [];
 
 /* =====================================================
    STATE
@@ -39,11 +33,7 @@ let bottomText = textB;
    INITIALIZE
 ===================================================== */
 
-topText.textContent = pages[0];
-bottomText.textContent = pages[1];
-
-sheetA.style.zIndex = 2;
-sheetB.style.zIndex = 1;
+loadBook();
 
 /* =====================================================
    NEXT PAGE
@@ -102,5 +92,21 @@ function finishTurn() {
     topSheet.addEventListener("animationend", finishTurn);
 
     turning = false;
+
+}
+
+async function loadBook() {
+
+    const response = await fetch("books/demo.json");
+
+    const book = await response.json();
+
+    pages = book.pages.map(page => page.text);
+
+    topText.textContent = pages[0];
+    bottomText.textContent = pages[1];
+
+    sheetA.style.zIndex = 2;
+    sheetB.style.zIndex = 1;
 
 }
