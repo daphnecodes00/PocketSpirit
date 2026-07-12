@@ -28,12 +28,20 @@ const book = {
             currentSheet.removeEventListener( "transitionend", onTransitionEnd);
 
             this.currentPage++;
-            showPage(this.currentPage);
+            rebuildStack();
             this.isTurning = false;
         };
         currentSheet.addEventListener("transitionend", onTransitionEnd);
         currentSheet.classList.add("turning");
-    }
+    },
+
+    moveCurrentPageToBack() {
+
+    const page = this.pages[this.currentPage];
+
+    page.style.zIndex = 0;
+
+}
 
 };
 
@@ -71,7 +79,7 @@ async function loadPocketFolk() {
 
         populateBook();
 
-        showPage(0);
+        rebuildStack();
 
         initializeBook();
 
@@ -127,23 +135,23 @@ function populateBook() {
    SHOW PAGE
 ===================================================== */
 
-function showPage(index) {
+function rebuildStack() {
 
-    book.pages.forEach((page, i) => {
+    book.pages.forEach((page, index) => {
 
         page.classList.remove("active");
 
         page.style.zIndex =
-            book.pages.length - i;
+            book.pages.length - index;
 
     });
 
-    const activePage =
-        book.pages[index];
+    const topPage =
+        book.pages[book.currentPage];
 
-    activePage.classList.add("active");
+    topPage.classList.add("active");
 
-    activePage.style.zIndex = 100;
+    topPage.style.zIndex = 100;
 
 }
 

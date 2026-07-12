@@ -126,7 +126,7 @@ body {
     backface-visibility: hidden;
 
     transition:
-        transform .8s cubic-bezier(.22,.61,.36,1);
+        transform 900ms cubic-bezier(.2, .8, .2, 1);
 
 }
 
