@@ -1,11 +1,41 @@
 /* =====================================================
    THE LITTLE DISTRICT
-   Pocket Folk Reader
+   Pocket Folk Reader v0.2
 ===================================================== */
 
 let pocketFolk = null;
 
-let currentPage = 0;
+const book = {
+
+    currentPage: 0,
+
+    pages: [],
+
+    isTurning: false,
+
+    turnForward() {
+
+        if (this.isTurning)
+         return;
+        if (this.currentPage >= this.pages.length - 1)
+         return;
+        this.isTurning = true;
+
+        const currentSheet = this.pages[this.currentPage].querySelector(".sheet");
+
+        const onTransitionEnd = () => {
+            currentSheet.classList.remove("turning");
+            currentSheet.removeEventListener( "transitionend", onTransitionEnd);
+
+            this.currentPage++;
+            showPage(this.currentPage);
+            this.isTurning = false;
+        };
+        currentSheet.addEventListener("transitionend", onTransitionEnd);
+        currentSheet.classList.add("turning");
+    }
+
+};
 
 
 /* =====================================================
@@ -35,8 +65,9 @@ async function loadPocketFolk() {
         const response =
             await fetch(`data/${character}.json`);
 
-        pocketFolk =
-            await response.json();
+        pocketFolk = await response.json();
+
+        book.pages = [...document.querySelectorAll(".page")];
 
         populateBook();
 
@@ -61,16 +92,12 @@ async function loadPocketFolk() {
 
 function populateBook() {
 
-    /* ---------- Cover ---------- */
-
     document.getElementById("cover-character").src =
         pocketFolk.image;
 
     document.getElementById("cover-name").textContent =
         pocketFolk.name;
 
-
-    /* ---------- Meet ---------- */
 
     document.getElementById("character-image").src =
         pocketFolk.image;
@@ -82,19 +109,13 @@ function populateBook() {
         pocketFolk.introduction;
 
 
-    /* ---------- Today's Thought ---------- */
-
     document.getElementById("whisper").textContent =
         pocketFolk.whispers[0];
 
 
-    /* ---------- Reflection ---------- */
-
     document.getElementById("journal-prompt").textContent =
         pocketFolk.journalPrompts[0];
 
-
-    /* ---------- Back Cover ---------- */
 
     document.getElementById("farewell").textContent =
         pocketFolk.farewell;
@@ -108,16 +129,21 @@ function populateBook() {
 
 function showPage(index) {
 
-    const pages =
-        document.querySelectorAll(".page");
-
-    pages.forEach(page => {
+    book.pages.forEach((page, i) => {
 
         page.classList.remove("active");
 
+        page.style.zIndex =
+            book.pages.length - i;
+
     });
 
-    pages[index].classList.add("active");
+    const activePage =
+        book.pages[index];
+
+    activePage.classList.add("active");
+
+    activePage.style.zIndex = 100;
 
 }
 
@@ -126,33 +152,20 @@ function showPage(index) {
    TURN PAGE
 ===================================================== */
 
-function turnPage() {
-
-    const pages =
-        document.querySelectorAll(".page");
-
-    if (currentPage >= pages.length - 1)
-        return;
-
-    currentPage++;
-
-    showPage(currentPage);
-
-}
-
+ 
 
 /* =====================================================
-   INITIALIZE BOOK
+   INITIALIZE
 ===================================================== */
 
 function initializeBook() {
 
     document
-        .getElementById("book")
-        .addEventListener("click", function () {
+    .getElementById("book")
+    .addEventListener("click", () => {
 
-            turnPage();
+        book.turnForward();
 
-        });
+    });
 
-}i
+}
