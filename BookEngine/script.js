@@ -41,7 +41,11 @@ loadBook();
 
 async function loadBook() {
 
-    const response = await fetch("books/demo.json");
+    const params = new URLSearchParams(window.location.search);
+
+    const bookId = params.get("id") || "demo";
+
+    const response = await fetch(`books/${bookId}.json`);
 
     const bookData = await response.json();
 
@@ -82,10 +86,23 @@ function renderPage(page) {
 
 }
 
+/* =====================================================
+   COVER
+===================================================== */
+
 function renderCover(page) {
 
     return `
         <div class="cover-page">
+
+            ${
+                page.image
+                    ? `<img
+                        class="cover-image"
+                        src="assets/images/${page.image}"
+                        alt="${page.title}">`
+                    : ""
+            }
 
             <h1>${page.title}</h1>
 
@@ -96,10 +113,23 @@ function renderCover(page) {
 
 }
 
+/* =====================================================
+   QUOTE
+===================================================== */
+
 function renderQuote(page) {
 
     return `
         <div class="quote-page">
+
+            ${
+                page.image
+                    ? `<img
+                        class="quote-image"
+                        src="assets/images/${page.image}"
+                        alt="">`
+                    : ""
+            }
 
             <blockquote>
 
@@ -118,6 +148,10 @@ function renderQuote(page) {
 
 }
 
+/* =====================================================
+   REFLECTION
+===================================================== */
+
 function renderReflection(page) {
 
     return `
@@ -135,6 +169,10 @@ function renderReflection(page) {
     `;
 
 }
+
+/* =====================================================
+   ENDING
+===================================================== */
 
 function renderEnding(page) {
 

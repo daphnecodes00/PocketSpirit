@@ -15,13 +15,12 @@
 
     "pages": [
 
-        {
+       {
             "id": 1,
             "type": "cover",
             "title": "Pocket Folk",
             "subtitle": "A Tiny Companion for Thoughtful Moments",
-            "background": "paper",
-            "animation": "fade"
+            "image": "lavender.png"
         },
 
         {
@@ -29,33 +28,26 @@
             "type": "quote",
             "text": "You are allowed to rest.",
             "author": "Pocket Folk",
-            "background": "paper",
-            "animation": "fade"
+            "image": "lavender.png"
         },
 
         {
             "id": 3,
             "type": "quote",
             "text": "Small steps still move you forward.",
-            "author": "Pocket Folk",
-            "background": "paper",
-            "animation": "fade"
+            "author": "Pocket Folk"
         },
 
         {
             "id": 4,
             "type": "reflection",
-            "question": "What made you smile today?",
-            "background": "paper",
-            "animation": "fade"
+            "question": "What made you smile today?"
         },
 
         {
             "id": 5,
             "type": "ending",
-            "title": "The End",
-            "background": "paper",
-            "animation": "fade"
+            "title": "The End"
         }
 
     ]

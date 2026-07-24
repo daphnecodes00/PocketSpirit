@@ -9,35 +9,37 @@
 
   "occupation": "Community Artist",
 
-  "image": "assets/characters/pepper-transparent.png",
+  "images": {
+    "base": "assets/characters/pepper/base.png",
+    "happy": "assets/characters/pepper/happy.png",
+    "squat": "assets/characters/pepper/squat.png",
+    "wave": [
+      "assets/characters/pepper/wave-1.png",
+      "assets/characters/pepper/wave-2.png",
+      "assets/characters/pepper/wave-3.png"
+    ]
+  },
 
   "introduction": "Hi, I'm Pepper.\n\nI carry little sketchbooks everywhere I go. They remind me that every beautiful thing starts as a tiny idea.\n\nWould you like to turn the page with me?",
 
-  "whispers": [
-    "Some ideas don't need to be perfect. They just need somewhere to begin.",
-    "A blank page isn't empty. It's patiently waiting for you.",
-    "Even tiny sketches can become wonderful stories.",
-    "You don't have to finish everything today. Beginning is enough.",
-    "Some dreams stay quiet until someone finally writes them down.",
-    "The first line is always the bravest one.",
-    "It's okay if today's masterpiece is only a doodle.",
-    "Your ideas deserve a place to exist, even before they're finished.",
-    "Small steps still leave beautiful footprints.",
-    "Progress often looks ordinary while you're living it."
-  ],
-
-  "journalPrompts": [
-    "What's one idea you've been quietly waiting to begin?",
-    "What would you create if you weren't worried about getting it wrong?",
-    "What's something you've been meaning to start?",
-    "If today were enough, what would you feel proud of?",
-    "What tiny step could Future You thank you for?",
-    "What's one unfinished dream that's still worth carrying?",
-    "Which part of your life deserves a blank page today?",
-    "What have you outgrown that you're still holding onto?",
-    "If you could spend ten minutes on one meaningful thing today, what would it be?",
-    "What's one promise you'd like to make to yourself this week?"
-  ],
-
-  "farewell": "Until next time.\n\nI'll have another page waiting for you tomorrow.\n\nCome visit me again.\n\n— Pepper 🍃"
+  "experiences": [
+    {
+        "id": "day-001",
+        "whisper": "Sometimes the smallest sketch becomes someone's favorite memory.",
+        "reflection": "What's one tiny idea you've been carrying that deserves to be started today?",
+        "farewell": "I'll keep your sketchbook safe until tomorrow."
+    },
+    {
+        "id": "day-002",
+        "whisper": "Not every flower blooms on the same morning.",
+        "reflection": "Where have you been comparing your journey instead of appreciating your own pace?",
+        "farewell": "I'll have another letter ready tomorrow."
+    },
+    {
+        "id": "day-003",
+        "whisper": "Even quiet days leave gentle footprints.",
+        "reflection": "What small moment today made you smile, even for a second?",
+        "farewell": "Come visit me again tomorrow."
+    }
+  ]
 }

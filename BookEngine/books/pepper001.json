@@ -1,0 +1,53 @@
+{
+    "version": "1.0",
+
+    "id": "demo",
+
+    "title": "For Someone Special",
+
+    "subtitle": "Tap. Breathe. Read.",
+
+    "author": "Pocket Spirit",
+
+    "theme": "lavender",
+
+    "language": "en",
+
+    "pages": [
+
+        {
+            "id": 1,
+            "type": "cover",
+            "title": "For Someone Special",
+            "subtitle": "Tap. Breathe. Read."
+        },
+
+        {
+            "id": 2,
+            "type": "quote",
+            "text": "You are allowed to rest.",
+            "author": "Pocket Folk",
+            "image": "lavender.png"
+        },
+
+        {
+            "id": 3,
+            "type": "quote",
+            "text": "Small steps still move you forward.",
+            "author": "Pocket Folk"
+        },
+
+        {
+            "id": 4,
+            "type": "reflection",
+            "question": "What made you smile today?"
+        },
+
+        {
+            "id": 5,
+            "type": "ending",
+            "title": "The End"
+        }
+
+    ]
+}

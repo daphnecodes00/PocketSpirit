@@ -5,167 +5,70 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <title>The Little District</title>
+    <title>Pocket Spirit</title>
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="style.css">
+    
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-    <div id="book">
+    <main id="book">
 
-        <div id="pages">
+        <!-- ======================================
+             SHEET B (BOTTOM)
+        ======================================= -->
 
-            <!-- ==========================================
-                 COVER
-            =========================================== -->
+        <section
+            id="sheet-b"
+            class="sheet">
 
-            <section id="page-cover" class="page">
+            <div class="page front">
 
-                <div class="sheet">
+                <div class="page-content" id="text-b"></div>
 
-                    <div class="content cover-content">
+            </div>
 
-                        <p class="publisher">
-                            The Little District
-                        </p>
+            <div class="page back">
 
-                        <h1 class="book-title">
-                            Pocket Folk
-                        </h1>
+                <div class="page-back"></div>
 
-                        <p class="volume">
-                            Volume One
-                        </p>
+            </div>
 
-                        <img
-                            id="cover-character"
-                            alt="Pocket Folk">
+        </section>
 
-                        <h2 id="cover-name"></h2>
+        <!-- ======================================
+             SHEET A (TOP)
+        ======================================= -->
 
-                        <p class="cover-tagline">
-                            A tiny companion for thoughtful days.
-                        </p>
+        <section
+            id="sheet-a"
+            class="sheet">
 
-                    </div>
+            <div class="page front">
 
-                </div>
+                <div class="page-content" id="text-a"></div>
 
-            </section>
+            </div>
 
+            <div class="page back">
 
+                <div class="page-back"></div>
 
-            <!-- ==========================================
-                 PAGE 1 - MEET PEPPER
-            =========================================== -->
+            </div>
 
-            <section id="page-meet" class="page">
+        </section>
 
-                <div class="sheet">
+    </main>
 
-                    <div class="content">
+    
 
-                        <img
-                            id="character-image"
-                            alt="Pocket Folk">
-
-                        <h1 id="name"></h1>
-
-                        <p id="introduction"></p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==========================================
-                 PAGE 2 - TODAY'S THOUGHT
-            =========================================== -->
-
-            <section id="page-thought" class="page">
-
-                <div class="sheet">
-
-                    <div class="content">
-
-                        <p
-                            id="whisper"
-                            class="thought">
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==========================================
-                 PAGE 3 - REFLECTION
-            =========================================== -->
-
-            <section id="page-reflection" class="page">
-
-                <div class="sheet">
-
-                    <div class="content">
-
-                        <p
-                            id="journal-prompt"
-                            class="reflection">
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==========================================
-                 BACK COVER
-            =========================================== -->
-
-            <section id="page-back-cover" class="page">
-
-                <div class="sheet">
-
-                    <div class="content">
-
-                        <p id="farewell"></p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-        </div>
-
-    </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 

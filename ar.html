@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Pocket Spirit AR</title>
+
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+</head>
+
+<body>
+
+    <a-scene
+        id="arScene"
+        mindar-image="imageTargetSrc: assets/targets/pepper-door.mind;"
+        color-space="sRGB"
+        renderer="colorManagement: true"
+        vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false">
+
+        <!-- Assets MUST be inside the scene -->
+        <a-assets>
+
+            <a-asset-item
+                id="houseModel"
+                src="assets/models/pepper-house/house.glb">
+            </a-asset-item>
+
+            <img
+                id="pepperImage"
+                src="assets/characters/pepper/pepper.png">
+
+        </a-assets>
+
+        <a-camera
+            position="0 0 0"
+            look-controls="enabled: false">
+        </a-camera>
+
+        <a-entity
+            id="pepperTarget"
+            mindar-image-target="targetIndex: 0">
+
+            <a-entity
+                id="houseAnchor"
+                position="0 0 0"
+                rotation="0 180 0">
+
+                <a-entity
+                    id="house"
+                    gltf-model="#houseModel"
+                    position="0.00 -0.36 0.50"
+                    rotation="0 0 0"
+                    scale="0.24 0.24 0.24">
+                </a-entity>
+
+            </a-entity>
+
+        </a-entity>
+
+    </a-scene>
+
+    <script>
+
+    window.addEventListener("load", () => {
+
+        const scene = document.querySelector("#arScene");
+        const target = document.querySelector("#pepperTarget");
+
+        const house = document.querySelector("#house");
+        const houseAnchor = document.querySelector("#houseAnchor");
+
+        let pos = {
+            x: 0.00,
+            y: -0.36,
+            z: 0.50
+        };
+
+        let rot = {
+            x: 0,
+            y: 180,
+            z: 0
+        };
+
+        let scale = 0.24;
+
+        function updateHouse() {
+
+            house.setAttribute(
+                "position",
+                `${pos.x} ${pos.y} ${pos.z}`
+            );
+
+            houseAnchor.setAttribute(
+                "rotation",
+                `${rot.x} ${rot.y} ${rot.z}`
+            );
+
+            house.setAttribute(
+                "scale",
+                `${scale} ${scale} ${scale}`
+            );
+
+            console.clear();
+
+            console.log("========== HOUSE ==========");
+
+            console.log(
+                `position="${pos.x.toFixed(2)} ${pos.y.toFixed(2)} ${pos.z.toFixed(2)}"`
+            );
+
+            console.log(
+                `rotation="${rot.x} ${rot.y} ${rot.z}"`
+            );
+
+            console.log(
+                `scale="${scale.toFixed(2)} ${scale.toFixed(2)} ${scale.toFixed(2)}"`
+            );
+        }
+
+        updateHouse();
+
+        scene.addEventListener("loaded", () => {
+            console.log("✅ Scene loaded");
+        });
+
+        scene.addEventListener("arReady", () => {
+            console.log("✅ AR Ready");
+        });
+
+        scene.addEventListener("arError", (e) => {
+            console.error("❌ AR Error", e);
+        });
+
+        target.addEventListener("targetFound", () => {
+            console.log("✅ Pepper's door detected!");
+            updateHouse();
+        });
+
+        target.addEventListener("targetLost", () => {
+            console.log("❌ Pepper's door lost.");
+        });
+
+        document.addEventListener("keydown", (e) => {
+
+            switch (e.key.toLowerCase()) {
+
+                case "a":
+                    pos.x -= 0.01;
+                    break;
+
+                case "d":
+                    pos.x += 0.01;
+                    break;
+
+                case "w":
+                    pos.z -= 0.01;
+                    break;
+
+                case "s":
+                    pos.z += 0.01;
+                    break;
+
+                case "q":
+                    pos.y += 0.01;
+                    break;
+
+                case "e":
+                    pos.y -= 0.01;
+                    break;
+
+                case "[":
+                    rot.y -= 5;
+                    break;
+
+                case "]":
+                    rot.y += 5;
+                    break;
+
+                case "-":
+                    scale = Math.max(0.01, scale - 0.01);
+                    break;
+
+                case "=":
+                    scale += 0.01;
+                    break;
+
+                default:
+                    return;
+
+            }
+
+            updateHouse();
+
+        });
+
+    });
+
+    </script>
+
+</body>
+
+</html>
